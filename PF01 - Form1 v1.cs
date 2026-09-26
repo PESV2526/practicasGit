@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,8 +8,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
-namespace ejercicioTelegrama
+namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
@@ -24,13 +27,13 @@ namespace ejercicioTelegrama
             int numPalabras = 0;
             double coste;
 
-            //Leo el telegrama
+            //Leo el telegrama 
             textoTelegrama = txtTelegrama.Text;
             // telegrama urgente?
             if (cbUrgente.Checked)
                 tipoTelegrama = 'u';
-            //Obtengo el número de palabras que forma el telegrama
-            numPalabras = textoTelegrama.Length;
+            //Obtengo el número de palabras que forma el telegrama 
+			numPalabras = textoTelegrama.Length;
             //Si el telegrama es ordinario
             if (tipoTelegrama == 'o')
                 if (numPalabras <= 10)
