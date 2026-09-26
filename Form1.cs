@@ -20,18 +20,20 @@ namespace ejercicioTelegrama
         private void button1_Click(object sender, EventArgs e)
         {
             string textoTelegrama;
-            char tipoTelegrama = 'o'; // Corrección 1: por defecto es ordinario ('o')
+            char tipoTelegrama = 'o'; // Ordinario por defecto
             int numPalabras = 0;
             double coste;
 
             // Leo el telegrama
             textoTelegrama = txtTelegrama.Text;
 
-            // Telegrama urgente?
-            if (cbUrgente.Checked)
+            // Comprobamos el radiobutton seleccionado
+            if (rbUrgente.Checked)
                 tipoTelegrama = 'u';
+            else if (rbOrdinario.Checked)
+                tipoTelegrama = 'o';
 
-            // Corrección 2: Contar palabras reales, no caracteres
+            // Obtengo el número de palabras
             char[] separadores = new char[] { ' ', '\r', '\n' };
             string[] palabras = textoTelegrama.Split(separadores, StringSplitOptions.RemoveEmptyEntries);
             numPalabras = palabras.Length;
@@ -40,7 +42,7 @@ namespace ejercicioTelegrama
             if (tipoTelegrama == 'o')
             {
                 if (numPalabras <= 10)
-                    coste = 2.5; // Corrección 3: tarifa base ordinaria 2.5
+                    coste = 2.5;
                 else
                     coste = 2.5 + 0.5 * (numPalabras - 10);
             }
