@@ -42,7 +42,7 @@ namespace ejercicioTelegrama
             if (tipoTelegrama == 'o')
             {
                 if (numPalabras <= 10)
-                    coste = 2.5;
+                    coste = 3; // Modificado a 3 euros
                 else
                     coste = 2.5 + 0.5 * (numPalabras - 10);
             }
@@ -52,7 +52,7 @@ namespace ejercicioTelegrama
                 if (tipoTelegrama == 'u')
                 {
                     if (numPalabras <= 10)
-                        coste = 5;
+                        coste = 6; // Modificado a 6 euros
                     else
                         coste = 5 + 0.75 * (numPalabras - 10);
                 }
