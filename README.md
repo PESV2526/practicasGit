@@ -18,6 +18,8 @@
     _feature branch_ (feature-colab), integrándose mediante Pull Request y
     completando el ciclo de validación antes de consolidar la versión final en main.
 
+![Captura 0](docs/screenshots/captura-0.webp)
+_Adaptación del flujo de trabajo_
 
 **Usuario Principal PESV**
 
@@ -32,9 +34,9 @@ acceso en carpetas del sistema y mostró como archivos no rastreados ( _untracke
 elementos situados fuera del proyecto (../../../), intentando incluir la totalidad del perfil de
 usuario de Windows (C:\Users\pedro).
 
-/C:\Users\pedro\source\repos\ejercicioTelegrama\docs\screenshots\captura-0.webp
 
-_(Captura 1: Salida de PowerShell mostrando las advertencias de "Permission denied" y
+![Captura 1](docs/screenshots/captura-1.webp)
+_Salida de PowerShell mostrando las advertencias de "Permission denied" y
 los archivos no rastreados con prefijo ../../../)_
 
 **2. Causa técnica**
@@ -63,8 +65,9 @@ El comando devolvió True, confirmando el origen del problema.
        _git init
 git remote add origin https://github.com/PESV2526/practicasGit.git_
 
-_(Captura 2: Comandos de PowerShell con Test-Path, borrado de la carpeta .git y nuevo
-git status acotado al proyecto)_
+![Captura 2](docs/screenshots/captura-2.webp)
+_Comandos de PowerShell con Test-Path, borrado de la carpeta .git y nuevo
+git status acotado al proyecto_
 
 
 **Incidencia 2: Limpieza de artefactos y configuración de exclusiones (.gitignore)**
@@ -74,7 +77,8 @@ git status acotado al proyecto)_
 Tras inicializar el repositorio local, git status mostró carpetas temporales de compilación
 y configuración de Visual Studio (.vs/ y obj/) pendientes de ser versionadas.
 
-_(Captura 3: Salida de git status con .vs/ y obj/ en Untracked files)_
+![Captura 3](docs/screenshots/captura-3.webp)
+_Salida de git status con .vs/ y obj/ en Untracked files_
 
 **2. Causa técnica**
 
@@ -96,8 +100,9 @@ A continuación, se preparó y realizó el commit inicial de la solución base:
 git add.
 git commit -m "Primer commit: Solucion inicial y estructura base"
 ```
-_(Captura 4: Creación del commit inicial con los 13 archivos base correctamente
-versionados)_
+![Captura 4](docs/screenshots/captura-4.webp)
+_Creación del commit inicial con los 13 archivos base correctamente
+versionados_
 
 
 **Incidencia 3: Conflicto de ramas divergentes y resolución de conflicto en .gitignore**
@@ -113,8 +118,9 @@ explícito:
 CONFLICT (add/add): Merge conflict in .gitignore
 Automatic merge failed; fix conflicts and then commit the result.
 ```
-_(Captura 5: Rechazo del git push y posterior fallo de merge automático con conflicto en
-.gitignore)_
+![Captura 5](docs/screenshots/captura-5.webp)
+_Rechazo del git push y posterior fallo de merge automático con conflicto en
+.gitignore_
 
 **2. Causa técnica**
 
@@ -139,8 +145,9 @@ local, se produjo una colisión add/add.
 git commit -m "Merge con repositorio remoto resolviendo conflicto de gitignore"
 git push -u origin main_
 
-_(Captura 6: Confirmación del git push exitoso con la rama main siguiendo a
-origin/main)_
+![Captura 6](docs/screenshots/captura-6.webp)
+_Confirmación del git push exitoso con la rama main siguiendo a
+origin/main_
 
 
 **Usuario Colaborador PESV2526-colab**
@@ -186,8 +193,9 @@ las credenciales de la cuenta colaboradora PESV2526-colab.
 o El envío se completó satisfactoriamente, registrando la rama en el repositorio
 remoto vinculada a la cuenta secundaria.
 ```
-(Captura 7 : Salida de PowerShell confirmando el push exitoso de feature-colab y su
-visualización en GitHub)
+![Captura 7](docs/screenshots/captura-7.webp)
+_Salida de PowerShell confirmando el push exitoso de feature-colab y su
+visualización en GitHub_
 
 
 **Procedimiento: Integración mediante Pull Request y sincronización descendente**
@@ -199,8 +207,9 @@ desde la rama de trabajo feature-colab hacia la rama base main del repositorio c
 (PESV2526/practicasGit), notificando la resolución de los errores lógicos del cálculo de
 tarifas y procesamiento de texto.
 
-_(Captura 8 : Detalle de la Pull Request abierta en GitHub o Visual Studio con el diff de
-código verde/rojo)_
+![Captura 8](docs/screenshots/captura-8.webp)
+_Detalle de la Pull Request abierta en GitHub o Visual Studio con el diff de
+código verde/rojo_
 
 **2. Revisión y fusión remota (Usuario Administrador)**
 
@@ -258,8 +267,9 @@ git commit -m "Sustituye CheckBox urgente por RadioButtons ordinario y urgente"
 git push origin main
 ```
 
-_(Captura 9 : Salida de PowerShell con la preparación del commit 70fd3b4 y el push
-exitoso a origin/main)_
+![Captura 9](docs/screenshots/captura-9.webp)
+_Salida de PowerShell con la preparación del commit 70fd3b4 y el push
+exitoso a origin/main_
 
 **4. Verificación remota**
 
@@ -287,8 +297,9 @@ git pull origin main
 ```
 El árbol de trabajo local del Usuario 2 se alineó con el commit remoto 70fd3b4.
 
-_(Captura 10 : Salida de PowerShell en el equipo secundario mostrando el git pull de los
-RadioButtons)_
+![Captura 10](docs/screenshots/captura-10.webp)
+_Salida de PowerShell en el equipo secundario mostrando el git pull de los
+RadioButtons_
 
 **3. Ajuste de tarifas y publicación (Paso 23 - Usuario 2)**
 
@@ -304,7 +315,6 @@ git add Form1.cs
 git commit -m "Actualiza tarifas base: ordinario a 3 euros y urgente a 6 euros"
 git push origin main
 ```
-_(Captura 11 : Consola del Usuario 2 con el commit y push exitoso a origin/main)_
 
 **4. Cierre de sincronización (Usuario 1)**
 
@@ -317,9 +327,9 @@ git pull origin main
 Git completó la actualización mediante Fast-forward, garantizando la paridad total del
 código fuente en ambos extremos del desarrollo distribuido.
 
-
-_(Captura 12 : Consola del Usuario 1 con el Fast-forward final confirmando la recepción
-del último commit)_
+![Captura 12](docs/screenshots/captura-12.webp)
+_Consola del Usuario 1 con el Fast-forward final confirmando la recepción
+del último commit_
 
 
 **Verificación y auditoría del historial (GitFlow y Etiquetado)**
@@ -347,7 +357,7 @@ Esta representación constata la bifurcación de la rama feature-colab, los comm
 concurrentes de ambos desarrolladores, la resolución de fusiones y la convergencia final
 etiquetada en main y reflejada en develop.
 
-
+![Captura 13](docs/screenshots/captura-13.webp)
 _Captura 13 : Salida del comando git log --graph en PowerShell_
 
 
